@@ -11,9 +11,11 @@ def get_data():
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
     if humidity is not None and temperature is not None:
+
+        f_temp = (temperature * 9/5) + 32
         env_data = {}
-        env_data['temp'] = temperature
-        env_data['hum'] = humidity
+        env_data['temp'] = f_temp
+        env_data['humd'] = humidity
         print(env_data)
 
         return env_data

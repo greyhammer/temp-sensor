@@ -1,0 +1,11 @@
+[Unit]
+Description=Temp Sensor
+After=network.target
+
+[Service]
+WorkingDirectory=/home/keith/temp-sensor
+ExecStart=/usr/local/bin/flask --app /home/keith/temp-sensor/temp.py run -h 0.0.0.0
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
